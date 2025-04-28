@@ -1,0 +1,3 @@
+C:/Users/olive/2024_20569274/Worksheet7/Exercise 1/build/CMakeFiles/CylinderExample.dir
+C:/Users/olive/2024_20569274/Worksheet7/Exercise 1/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/olive/2024_20569274/Worksheet7/Exercise 1/build/CMakeFiles/ZERO_CHECK.dir

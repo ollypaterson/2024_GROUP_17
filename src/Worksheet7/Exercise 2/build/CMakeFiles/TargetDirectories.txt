@@ -1,0 +1,4 @@
+C:/Users/olive/2024_20569274/Worksheet7/Exercise 2/build/CMakeFiles/vtkexample_vr1.dir
+C:/Users/olive/2024_20569274/Worksheet7/Exercise 2/build/CMakeFiles/VRBindings.dir
+C:/Users/olive/2024_20569274/Worksheet7/Exercise 2/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/olive/2024_20569274/Worksheet7/Exercise 2/build/CMakeFiles/ZERO_CHECK.dir
