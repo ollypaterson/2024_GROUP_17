@@ -1,0 +1,10 @@
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/FirstQt.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/FirstQt_qmlimportscan.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/VRBindings.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/install.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/install/local.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/FirstQt_autogen_timestamp_deps.dir
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/FirstQt_autogen.dir

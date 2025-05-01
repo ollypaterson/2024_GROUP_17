@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-e6ca5b5df06c23a91ccf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "FirstQt",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "FirstQt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FirstQt-Debug-f6076fba45df62ea1198.json",
+					"name" : "FirstQt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "FirstQt_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FirstQt_autogen-Debug-ef91f873cc16cd2d2062.json",
+					"name" : "FirstQt_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "FirstQt_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FirstQt_autogen_timestamp_deps-Debug-8000dc54a141044036e0.json",
+					"name" : "FirstQt_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "FirstQt_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FirstQt_qmlimportscan-Debug-97f01e9558c2b1f482b7.json",
+					"name" : "FirstQt_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "VRBindings::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-VRBindings-Debug-305700a390876fa8c738.json",
+					"name" : "VRBindings",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug",
+		"source" : "C:/Users/olive/New/2024_GROUP_17/src"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

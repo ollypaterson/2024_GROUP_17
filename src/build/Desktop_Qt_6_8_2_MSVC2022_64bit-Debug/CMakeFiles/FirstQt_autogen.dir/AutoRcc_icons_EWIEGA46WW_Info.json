@@ -1,0 +1,30 @@
+{
+	"BUILD_DIR" : "C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/FirstQt_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/olive/New/2024_GROUP_17/src",
+	"CMAKE_SOURCE_DIR" : "C:/Users/olive/New/2024_GROUP_17/src",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/FirstQt_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/olive/New/2024_GROUP_17/src/Icons/filesave.png",
+		"C:/Users/olive/New/2024_GROUP_17/src/Icons/help.png",
+		"C:/Users/olive/New/2024_GROUP_17/src/Icons/print.png",
+		"C:/Users/olive/New/2024_GROUP_17/src/Icons/startVR.png",
+		"C:/Users/olive/New/2024_GROUP_17/src/Icons/fileopen.png",
+		"C:/Users/olive/New/2024_GROUP_17/src/Icons/stopVR.png"
+	],
+	"LOCK_FILE" : "C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/FirstQt_autogen.dir/AutoRcc_icons_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "icons" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_icons.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.8.2/msvc2022_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/CMakeFiles/FirstQt_autogen.dir/AutoRcc_icons_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/Users/olive/New/2024_GROUP_17/src/icons.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}
