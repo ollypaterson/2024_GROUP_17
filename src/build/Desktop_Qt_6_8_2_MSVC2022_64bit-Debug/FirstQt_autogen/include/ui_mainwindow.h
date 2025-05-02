@@ -42,7 +42,7 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QTreeView *treeView;
-    QVTKOpenGLNativeWidget *widget;
+    QVTKOpenGLNativeWidget *vtkWidget;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -115,12 +115,12 @@ public:
 
         horizontalLayout->addWidget(treeView);
 
-        widget = new QVTKOpenGLNativeWidget(centralwidget);
-        widget->setObjectName("widget");
-        sizePolicy.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
-        widget->setSizePolicy(sizePolicy);
+        vtkWidget = new QVTKOpenGLNativeWidget(centralwidget);
+        vtkWidget->setObjectName("vtkWidget");
+        sizePolicy.setHeightForWidth(vtkWidget->sizePolicy().hasHeightForWidth());
+        vtkWidget->setSizePolicy(sizePolicy);
 
-        horizontalLayout->addWidget(widget);
+        horizontalLayout->addWidget(vtkWidget);
 
 
         verticalLayout->addLayout(horizontalLayout);

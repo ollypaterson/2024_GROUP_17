@@ -4,6 +4,16 @@
 #include "ModelPartList.h"
 #include <vtkSmartPointer.h>
 #include <vtkLight.h>
+#include <vtkRenderer.h>
+#include <vtkGenericOpenGLRenderWindow.h>
+#include <vtkNew.h>
+#include <vtkCylinderSource.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkActor.h>
+#include <vtkProperty.h>
+#include <QVTKOpenGLNativeWidget.h>
+
+
 
 #include <QMainWindow>
 
@@ -39,10 +49,15 @@ private slots:
     void on_colourButton_triggered();
     void on_resetView_triggered();
     void on_lightSlider_valueChanged(int value);
+    void updateRender();
+    void updateRenderFromTree(const QModelIndex& index);
+
 
 private:
     Ui::MainWindow *ui;
     ModelPartList* partList;
     vtkSmartPointer<vtkLight> sceneLight;
+    vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
+    vtkSmartPointer<vtkRenderer> renderer;
 };
 #endif // MAINWINDOW_H

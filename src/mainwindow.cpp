@@ -6,6 +6,8 @@
 #include <QStandardItemModel>
 #include "optiondialog.h"
 #include "colourdialog.h"
+#include <QVTKOpenGLNativeWidget.h>
+#include <vtkCamera.h>
 
 MainWindow::MainWindow(QWidget* parent)
 
@@ -22,6 +24,25 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->lightSlider, &QSlider::valueChanged, this, &MainWindow::on_lightSlider_valueChanged);
 
 
+    //initalizing vtk
+    renderWindow = vtkSmartPointer<vtkGenericOpenGLRenderWindow>::New();
+    ui->vtkWidget->setRenderWindow(renderWindow);
+
+    renderer = vtkSmartPointer<vtkRenderer>::New();
+    renderWindow->AddRenderer(renderer);
+
+
+    vtkNew<vtkCylinderSource> cylinder;
+    cylinder->SetResolution(8);
+
+    vtkNew<vtkPolyDataMapper> mapper;
+    mapper->SetInputConnection(cylinder->GetOutputPort());
+
+    vtkNew<vtkActor> actor;
+    actor->SetMapper(mapper);
+    actor->GetProperty()->SetColor(1.0, 0.0, 0.35);
+    renderer->AddActor(actor);
+    renderer->ResetCamera();
 
 
     /*
@@ -36,9 +57,9 @@ MainWindow::MainWindow(QWidget* parent)
     sceneLight->SetSpecularColor(1.0, 1.0, 1.0);
     sceneLight->SetIntensity(0.5);  // Default
 
-    ui->*INSERTVTKWIDGETNAME*->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->AddLight(sceneLight);
-
+    ui->vtkWidget->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->AddLight(sceneLight);
     */
+
 
     ui->treeView->addAction(ui->actionItemOptions);
 
@@ -119,20 +140,48 @@ void MainWindow::handleTreeClicked() {
     emit statusUpdateMessage(QString("The selected item is: ") + text, 0);
 
 }
+
+
 void MainWindow::on_actionOpen_FIle_triggered()
 {
-    emit statusUpdateMessage( QString("Open file action triggered"), 0);
-    QString fileName = QFileDialog::getOpenFileName(
-        this ,
-        tr("Open File"),
-        "C:\\",
-        tr("STL Files(*.stl);;Text Files(*.txt)") );
+    QString fileName = QFileDialog::getOpenFileName(this, "Open STL File", "", "STL Files (*.stl)");
+    if (fileName.isEmpty()) return;
 
-    if (!fileName.isEmpty()){
-        emit statusUpdateMessage(QString("Selected file: ")+ fileName, 0);
+    QFileInfo fileInfo(fileName);
+    QString partName = fileInfo.fileName();
+
+    // Create a new part and load STL
+    QModelIndex root = QModelIndex();
+    QList<QVariant> data = { partName, "true", "false", "false" };
+    QModelIndex newItemIndex = partList->appendChild(root, data);
+
+    ModelPart* part = static_cast<ModelPart*>(newItemIndex.internalPointer());
+    part->loadSTL(fileName);
+
+
+
+
+    if (part->getActor()) {
+        renderer->AddActor(part->getActor());
+        double bounds[6];
+        part->getActor()->GetBounds(bounds);
+        renderer->ResetCamera();
+
+        renderer->ResetCameraClippingRange();
+        renderer->GetRenderWindow()->Render();
+
+        ui->vtkWidget->renderWindow()->Render();
+    } else {
+        return;
     }
 
+
+    renderer->SetBackground(0.8, 0.8, 0.8);
+    updateRender();
+
+
 }
+
 
 
 void MainWindow::on_actionSave_File_triggered()
@@ -293,8 +342,42 @@ void MainWindow::on_lightSlider_valueChanged(int value) {
     sceneLight->SetIntensity(intensity);
 
 
-    //ui->vtkWidget->GetRenderWindow()->Render();
+//    renderer->Render();
+  //  ui->vtkWidget->GetRenderWindow()->Render();
+
 
     statusBar()->showMessage(QString("Light intensity set to %1%").arg(value));
 }
 
+
+
+
+
+void MainWindow::updateRender() {
+    renderer->RemoveAllViewProps();
+    updateRenderFromTree(QModelIndex());  // start from invisible root
+    renderer->ResetCamera();
+    ui->vtkWidget->renderWindow()->Render();
+}
+
+
+
+void MainWindow::updateRenderFromTree(const QModelIndex& index) {
+    ModelPart* part;
+
+    if (!index.isValid()) {
+        part = partList->getRootItem();  // top of the model
+    } else {
+        part = static_cast<ModelPart*>(index.internalPointer());
+    }
+
+    if (part && part->getActor()) {
+        qDebug() << "Rendering part:" << part->data(0).toString();
+        renderer->AddActor(part->getActor());
+    }
+
+    int rows = partList->rowCount(index);
+    for (int i = 0; i < rows; ++i) {
+        updateRenderFromTree(partList->index(i, 0, index));
+    }
+}

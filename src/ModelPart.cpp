@@ -8,6 +8,7 @@
   */
 
 #include "ModelPart.h"
+#include <vtkProperty.h>
 
 
 /* Commented out for now, will be uncommented later when you have
@@ -125,29 +126,33 @@ unsigned char ModelPart::getColourB() {
 }
 
 
-void ModelPart::setVisible(bool isVisible) {
-    /* This is a placeholder function that you will need to modify if you want to use it */
-    
-    /* As the name suggests ... */
+void ModelPart::setVisible(bool visible) {
+    isVisible = visible;
+    if (actor) {
+        actor->SetVisibility(visible);
+    }
 }
 
 bool ModelPart::visible() {
-    /* This is a placeholder function that you will need to modify if you want to use it */
-    
-    /* As the name suggests ... */
-    return false;
+
+    return isVisible;
 }
 
 void ModelPart::loadSTL( QString fileName ) {
-    /* This is a placeholder function that you will need to modify if you want to use it */
-    
-    /* 1. Use the vtkSTLReader class to load the STL file 
-     *     https://vtk.org/doc/nightly/html/classvtkSTLReader.html
-     */
+    file = vtkSmartPointer<vtkSTLReader>::New();
+    file->SetFileName(fileName.toStdString().c_str());
+    file->Update();
 
-    /* 2. Initialise the part's vtkMapper */
-    
-    /* 3. Initialise the part's vtkActor and link to the mapper */
+
+    mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+    mapper->SetInputConnection(file->GetOutputPort());
+
+    actor = vtkSmartPointer<vtkActor>::New();
+    actor->SetMapper(mapper);
+
+    actor->GetProperty()->SetColor(1.0, 1.0, 0.0);  // Bright yellow
+    actor->SetVisibility(true);
+    isVisible = true;  //
 }
 
 
@@ -163,13 +168,11 @@ bool ModelPart::setData(int column, const QVariant &value)
     return true;
 }
 
-//vtkSmartPointer<vtkActor> ModelPart::getActor() {
-    /* This is a placeholder function that you will need to modify if you want to use it */
-    
-    /* Needs to return a smart pointer to the vtkActor to allow
-     * part to be rendered.
-     */
-//}
+
+
+vtkSmartPointer<vtkActor> ModelPart::getActor() {
+    return actor;
+}
 
 //vtkActor* ModelPart::getNewActor() {
     /* This is a placeholder function that you will need to modify if you want to use it
