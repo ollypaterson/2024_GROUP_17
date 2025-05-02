@@ -287,11 +287,18 @@ void MainWindow::on_treeViewContextMenu(const QPoint &pos)
 
         } else if (selectedAction == toggleVisibility) {
             QString visibility = item->data(1).toString();
-            bool isVisible = (visibility != "false");
-            item->setData(1, isVisible ? "false" : "true");
+            bool isVisible = (visibility == "true");
+            bool newVisible = !isVisible;
+            item->setData(1, newVisible ? "true" : "false");
+
+            item->setVisible(newVisible);
 
             ui->treeView->update(index);
-            statusBar()->showMessage(QString("Toggled visibility: now %1").arg(isVisible ? "hidden" : "visible"));
+            ui->vtkWidget->renderWindow()->Render();
+
+            statusBar()->showMessage(QString("Toggled visibility: now %1").arg(newVisible ? "visible" : "hidden"));
+
+
 
         } else if (selectedAction == renamePart) {
             bool ok;
