@@ -14,8 +14,8 @@ public:
     VRRenderThread(QObject *parent = nullptr);
     ~VRRenderThread();
 
-    void addActor(vtkSmartPointer<vtkActor> actor); // Adds an actor to the VR scene
-    void stopVR(); // Stops the VR thread
+    void addActor(vtkSmartPointer<vtkActor> actor); // Adds an actor to the VR renderer
+    void stopVR(); // Stops the VR rendering thread
 
 protected:
     void run() override;
