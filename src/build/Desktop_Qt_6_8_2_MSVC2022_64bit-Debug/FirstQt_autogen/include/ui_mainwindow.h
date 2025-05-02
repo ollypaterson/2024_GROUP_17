@@ -14,10 +14,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -44,9 +46,14 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label;
+    QSlider *lightSlider;
     QSpacerItem *horizontalSpacer_2;
     QMenuBar *menubar;
     QMenu *menuFile;
+    QMenu *menuAbout;
+    QMenu *menuPrint;
     QStatusBar *statusbar;
     QToolBar *toolBar;
 
@@ -80,12 +87,14 @@ public:
         actionSave_File->setMenuRole(QAction::MenuRole::NoRole);
         actionHelp = new QAction(MainWindow);
         actionHelp->setObjectName("actionHelp");
+        actionHelp->setEnabled(true);
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/Icons/help.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         actionHelp->setIcon(icon2);
         actionHelp->setMenuRole(QAction::MenuRole::NoRole);
         actionPrint = new QAction(MainWindow);
         actionPrint->setObjectName("actionPrint");
+        actionPrint->setEnabled(true);
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/Icons/print.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         actionPrint->setIcon(icon3);
@@ -128,6 +137,24 @@ public:
 
         horizontalLayout_2->addWidget(pushButton_2);
 
+        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+
+        horizontalLayout_2->addWidget(label);
+
+        lightSlider = new QSlider(centralwidget);
+        lightSlider->setObjectName("lightSlider");
+        lightSlider->setMaximum(100);
+        lightSlider->setValue(50);
+        lightSlider->setOrientation(Qt::Orientation::Horizontal);
+        lightSlider->setTickPosition(QSlider::TickPosition::TicksBelow);
+
+        horizontalLayout_2->addWidget(lightSlider);
+
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
@@ -141,6 +168,10 @@ public:
         menubar->setGeometry(QRect(0, 0, 800, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName("menuFile");
+        menuAbout = new QMenu(menubar);
+        menuAbout->setObjectName("menuAbout");
+        menuPrint = new QMenu(menubar);
+        menuPrint->setObjectName("menuPrint");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -150,10 +181,14 @@ public:
         MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, toolBar);
 
         menubar->addAction(menuFile->menuAction());
+        menubar->addAction(menuAbout->menuAction());
+        menubar->addAction(menuPrint->menuAction());
         menuFile->addAction(actionOpen_FIle);
         menuFile->addAction(actionSave_File);
         menuFile->addAction(actionHelp);
         menuFile->addAction(actionPrint);
+        menuAbout->addAction(actionHelp);
+        menuPrint->addAction(actionPrint);
         toolBar->addAction(actionOpen_FIle);
         toolBar->addAction(actionSave_File);
         toolBar->addAction(actionHelp);
@@ -173,9 +208,12 @@ public:
         actionSave_File->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         actionHelp->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         actionPrint->setText(QCoreApplication::translate("MainWindow", "Print", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Reset Model View", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Change Model Colour", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Light intensity: ", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
+        menuAbout->setTitle(QCoreApplication::translate("MainWindow", "About", nullptr));
+        menuPrint->setTitle(QCoreApplication::translate("MainWindow", "Print", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 #include "ModelPart.h"
 #include "ModelPartList.h"
+#include <vtkSmartPointer.h>
+#include <vtkLight.h>
 
 #include <QMainWindow>
 
@@ -34,9 +36,13 @@ private slots:
     void on_actionHelp_triggered();
     void on_actionPrint_triggered();
     void on_treeViewContextMenu(const QPoint &pos);
+    void on_colourButton_triggered();
+    void on_resetView_triggered();
+    void on_lightSlider_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;
     ModelPartList* partList;
+    vtkSmartPointer<vtkLight> sceneLight;
 };
 #endif // MAINWINDOW_H

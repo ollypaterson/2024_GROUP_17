@@ -5,6 +5,7 @@
 #include <QInputDialog>
 #include <QStandardItemModel>
 #include "optiondialog.h"
+#include "colourdialog.h"
 
 MainWindow::MainWindow(QWidget* parent)
 
@@ -14,10 +15,31 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
     ui->treeView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->treeView, &QTreeView::customContextMenuRequested, this, &MainWindow::on_treeViewContextMenu);
-    connect(ui->pushButton, &QPushButton::released, this, &MainWindow::handleButton);
+    connect(ui->pushButton, &QPushButton::released, this, &MainWindow::on_resetView_triggered);
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
-    connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleSecondButton);
+    connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::on_colourButton_triggered);
+    connect(ui->lightSlider, &QSlider::valueChanged, this, &MainWindow::on_lightSlider_valueChanged);
+
+
+
+
+    /*
+    sceneLight = vtkSmartPointer<vtkLight>::New();
+    sceneLight->SetLightTypeToSceneLight();
+    sceneLight->SetPosition(5, 5, 15);
+    sceneLight->SetPositional(true);
+    sceneLight->SetConeAngle(10);
+    sceneLight->SetFocalPoint(0, 0, 0);
+    sceneLight->SetDiffuseColor(1.0, 1.0, 1.0);
+    sceneLight->SetAmbientColor(1.0, 1.0, 1.0);
+    sceneLight->SetSpecularColor(1.0, 1.0, 1.0);
+    sceneLight->SetIntensity(0.5);  // Default
+
+    ui->*INSERTVTKWIDGETNAME*->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->AddLight(sceneLight);
+
+    */
+
     ui->treeView->addAction(ui->actionItemOptions);
 
     /*Create / allocate the model list */
@@ -25,6 +47,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     /*Link it to the treeview in the GUI*/
     ui->treeView->setModel(this->partList);
+    ui->treeView->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     /* Manually create a model tree - there a much better and more flexible ways of doing this, e.g. with
     nested function. this is just a quick example and a start point*/
@@ -36,9 +59,12 @@ MainWindow::MainWindow(QWidget* parent)
 
         QString name = QString("TopLevel %1").arg(i);
         QString visible("true");
+        QString shrink = "false";
+        QString clip = "false";
+
 
         //Create child item
-        ModelPart* childItem = new ModelPart({ name, visible });
+        ModelPart* childItem = new ModelPart({ name, visible, shrink, clip });
 
         //Append to tree top level
         rootItem->appendChild(childItem);
@@ -48,12 +74,18 @@ MainWindow::MainWindow(QWidget* parent)
 
             QString name = QString("Item %1,%2").arg(i).arg(j);
             QString visible("true");
+            QString shrink = "false";
+            QString clip = "false";
 
-            ModelPart* childChildItem = new ModelPart({ name, visible });
+
+            ModelPart* childChildItem = new ModelPart({ name, visible, shrink, clip });
 
             //Append to parent
             childItem->appendChild(childChildItem);
         }
+
+
+
     }
 }
 
@@ -64,7 +96,7 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::handleButton() {
-    emit statusUpdateMessage(QString("Add button was clicked"), 0);
+    emit statusUpdateMessage(QString("Model view reset"), 0);
 }
 
 void MainWindow::handleSecondButton() {
@@ -158,9 +190,26 @@ void MainWindow::on_treeViewContextMenu(const QPoint &pos)
         QString partName = item->data(0).toString();  // Column 0 = name
 
         QAction* changeColour = contextMenu.addAction("Change colour");
-        QAction* clipFilter = contextMenu.addAction("Apply clip filter");
-        QAction* shrinkFilter = contextMenu.addAction("Apply shrink filter");
+
+        QAction* clipFilter = contextMenu.addAction("Toggle clip filter");
+        clipFilter->setCheckable(true);
+        QString clipState = index.siblingAtColumn(3).data().toString();
+        bool isClipped = (clipState == "true");
+        clipFilter->setChecked(isClipped);
+
+        QAction* shrinkFilter = contextMenu.addAction("Toggle shrink filter");
+        shrinkFilter->setCheckable(true);
+        QString shrinkState = index.siblingAtColumn(2).data().toString();
+        bool isShrinked = (shrinkState == "true");
+        shrinkFilter->setChecked(isShrinked);
+
         QAction* toggleVisibility = contextMenu.addAction("Toggle visibility");
+        toggleVisibility->setCheckable(true);
+        QString visibilityState = index.siblingAtColumn(1).data().toString();  // Column 1 = Visible?
+        bool isVisible = (visibilityState == "true");
+        toggleVisibility->setChecked(isVisible);
+
+
         QAction* renamePart = contextMenu.addAction("Rename part");
 
         QAction* selectedAction = contextMenu.exec(ui->treeView->viewport()->mapToGlobal(pos));
@@ -170,10 +219,22 @@ void MainWindow::on_treeViewContextMenu(const QPoint &pos)
             statusBar()->showMessage("Change colour on: " + partName);
 
         } else if (selectedAction == clipFilter) {
-            statusBar()->showMessage("Apply clip filter on: " + partName);
+            bool enabled = clipFilter->isChecked();
+
+            QModelIndex clipIndex = index.siblingAtColumn(3);
+            ui->treeView->model()->setData(clipIndex, enabled ? "true" : "false", Qt::EditRole);
+            ui->treeView->update(clipIndex);
+
+            statusBar()->showMessage("Clip filter " + QString(enabled ? "enabled" : "disabled") + " on: " + partName);
 
         } else if (selectedAction == shrinkFilter) {
-            statusBar()->showMessage("Apply shrink filter on: " + partName);
+            bool enabled = shrinkFilter->isChecked();
+
+            QModelIndex shrinkIndex = index.siblingAtColumn(2);
+            ui->treeView->model()->setData(shrinkIndex, enabled ? "true" : "false", Qt::EditRole);
+            ui->treeView->update(shrinkIndex);
+            statusBar()->showMessage("Shrink filter " + QString(enabled ? "enabled" : "disabled") + " on: " + partName);
+
 
         } else if (selectedAction == toggleVisibility) {
             QString visibility = item->data(1).toString();
@@ -199,3 +260,41 @@ void MainWindow::on_treeViewContextMenu(const QPoint &pos)
         contextMenu.exec(ui->treeView->viewport()->mapToGlobal(pos));
     }
 }
+
+
+
+
+void MainWindow::on_colourButton_triggered() {
+
+    colourdialog dialog(this);
+
+    if (dialog.exec() == QDialog::Accepted) {
+        QColor colour = dialog.selectedColour();
+        statusBar()-> showMessage("Selected colour: " + colour.name());
+
+    } else {
+        statusBar()-> showMessage("Colour selection cancelled");
+    }
+}
+
+
+
+void MainWindow::on_resetView_triggered() {
+    statusBar()->showMessage("Reset model view");
+
+    //emit resetViewRequest();
+}
+
+
+
+
+void MainWindow::on_lightSlider_valueChanged(int value) {
+    double intensity = static_cast<double>(value) / 100.0;  // scale 0.0 to 1.0
+    sceneLight->SetIntensity(intensity);
+
+
+    //ui->vtkWidget->GetRenderWindow()->Render();
+
+    statusBar()->showMessage(QString("Light intensity set to %1%").arg(value));
+}
+

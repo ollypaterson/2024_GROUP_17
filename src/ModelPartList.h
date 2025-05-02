@@ -95,6 +95,9 @@ public:
       */
     QModelIndex appendChild( QModelIndex& parent, const QList<QVariant>& data );
 
+    bool setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole) override;
+
+
 
 private:
     ModelPart *rootItem;    /**< This is a pointer to the item at the base of the tree */

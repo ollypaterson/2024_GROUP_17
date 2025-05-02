@@ -1,52 +1,9 @@
-C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/FirstQt_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkABI.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkABINamespace.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkBuild.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCommonCoreModule.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCompiler.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkDeprecation.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkFeatures.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkFiltersCoreModule.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkIOStream.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkIndent.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkLight.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkMeta.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkNew.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkOStrStreamWrapper.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkOStreamWrapper.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkObject.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkObjectBase.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkOptions.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkPlatform.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkRenderingCoreModule.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSetGet.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSmartPointer.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSmartPointerBase.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSystemIncludes.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkTimeStamp.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkType.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkVersionQuick.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkWeakPointerBase.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkWin32Header.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkWrappingHints.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtk_kwiml.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkkwiml/abi.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkkwiml/int.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtksys/Configure.h \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtksys/Configure.hxx \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtksys/Status.hxx \
-  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtksys/SystemTools.hxx \
-  C:/Qt/6.8.2/msvc2022_64/include/QtCore/QAbstractItemModel \
-  C:/Qt/6.8.2/msvc2022_64/include/QtCore/QList \
-  C:/Qt/6.8.2/msvc2022_64/include/QtCore/QModelIndex \
-  C:/Qt/6.8.2/msvc2022_64/include/QtCore/QString \
-  C:/Qt/6.8.2/msvc2022_64/include/QtCore/QVariant \
+C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug/FirstQt_autogen/EWIEGA46WW/moc_colourdialog.cpp: C:/Users/olive/New/2024_GROUP_17/src/colourdialog.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/q20iterator.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/q20memory.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/q23utility.h \
-  C:/Qt/6.8.2/msvc2022_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/qanystringview.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtCore/qarraydata.h \
@@ -187,13 +144,10 @@ C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug
   C:/Qt/6.8.2/msvc2022_64/include/QtGui/qtransform.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtGui/qwindowdefs_win.h \
-  C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/QMainWindow \
-  C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qmainwindow.h \
+  C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/QDialog \
+  C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qsizepolicy.h \
-  C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
-  C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qwidget.h \
-  C:/Users/olive/New/2024_GROUP_17/src/ModelPart.h \
-  C:/Users/olive/New/2024_GROUP_17/src/ModelPartList.h
+  C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qwidget.h

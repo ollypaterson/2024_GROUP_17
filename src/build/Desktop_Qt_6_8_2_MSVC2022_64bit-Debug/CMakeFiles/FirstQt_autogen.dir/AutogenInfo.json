@@ -1147,6 +1147,12 @@
 			null
 		],
 		[
+			"C:/Users/olive/New/2024_GROUP_17/src/colourdialog.h",
+			"MU",
+			"EWIEGA46WW/moc_colourdialog.cpp",
+			null
+		],
+		[
 			"C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -1280,6 +1286,7 @@
 	[
 		[ "C:/Users/olive/New/2024_GROUP_17/src/ModelPart.cpp", "MU", null ],
 		[ "C:/Users/olive/New/2024_GROUP_17/src/ModelPartList.cpp", "MU", null ],
+		[ "C:/Users/olive/New/2024_GROUP_17/src/colourdialog.cpp", "MU", null ],
 		[ "C:/Users/olive/New/2024_GROUP_17/src/main.cpp", "MU", null ],
 		[ "C:/Users/olive/New/2024_GROUP_17/src/mainwindow.cpp", "MU", null ],
 		[ "C:/Users/olive/New/2024_GROUP_17/src/optiondialog.cpp", "MU", null ]
