@@ -9,7 +9,6 @@
 #include <QVTKOpenGLNativeWidget.h>
 #include <vtkSmartPointer.h>
 #include <vtkCamera.h>
-#include <vtkLight.h>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -26,7 +25,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
     connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::on_colourButton_triggered);
     connect(ui->lightSlider, &QSlider::valueChanged, this, &MainWindow::on_lightSlider_valueChanged);
-    connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::onStartVRButtonClicked); // 🔧 New connection for VR
+    connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::onStartVRButtonClicked); // 🔄 Added for VR
 
     // Initialize VTK render window and renderer
     renderWindow = vtkSmartPointer<vtkGenericOpenGLRenderWindow>::New();
@@ -113,7 +112,7 @@ void MainWindow::on_lightSlider_valueChanged(int value)
 void MainWindow::updateRender()
 {
     renderer->RemoveAllViewProps();
-    updateRenderFromTree(QModelIndex()); // start from invisible root
+    updateRenderFromTree(QModelIndex()); // Start from invisible root
     renderer->ResetCamera();
     ui->vtkWidget->GetRenderWindow()->Render();
 }
@@ -159,11 +158,30 @@ void MainWindow::onStartVRButtonClicked()
 void MainWindow::handleTreeClicked()
 {
     QModelIndex index = ui->treeView->currentIndex();
-    if (index.isValid()) {
-        ModelPart* part = static_cast<ModelPart*>(index.internalPointer());
-        if (part) {
-            QString text = part->data(0).toString();
-            emit statusUpdateMessage(QString("The selected item is: ") + text, 0);
-        }
+    ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+    if (selectedPart) {
+        QString text = selectedPart->data(0).toString();
+        emit statusUpdateMessage(QString("The selected item is: ") + text, 0);
     }
+}
+
+void MainWindow::on_actionOpen_FIle_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "Open STL File", "", "STL Files (*.stl)");
+    if (fileName.isEmpty()) return;
+
+    QFileInfo fileInfo(fileName);
+    QString partName = fileInfo.fileName();
+
+    // Load the model into a new ModelPart instance
+    ModelPart* part = new ModelPart({partName}, nullptr);
+    part->loadSTL(fileName);
+
+    // Create a new item in the Tree View
+    QStandardItem* item = new QStandardItem(partName);
+    item->setData(QVariant::fromValue(static_cast<void*>(part)));
+    model->appendRow(item);
+
+    // Update the renderer
+    updateRender();
 }
