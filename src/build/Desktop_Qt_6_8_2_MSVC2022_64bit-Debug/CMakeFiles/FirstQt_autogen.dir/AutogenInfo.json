@@ -1163,6 +1163,12 @@
 			"MU",
 			"EWIEGA46WW/moc_optiondialog.cpp",
 			null
+		],
+		[
+			"C:/Users/olive/New/2024_GROUP_17/src/vrrenderthread.h",
+			"MU",
+			"EWIEGA46WW/moc_vrrenderthread.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -1289,7 +1295,8 @@
 		[ "C:/Users/olive/New/2024_GROUP_17/src/colourdialog.cpp", "MU", null ],
 		[ "C:/Users/olive/New/2024_GROUP_17/src/main.cpp", "MU", null ],
 		[ "C:/Users/olive/New/2024_GROUP_17/src/mainwindow.cpp", "MU", null ],
-		[ "C:/Users/olive/New/2024_GROUP_17/src/optiondialog.cpp", "MU", null ]
+		[ "C:/Users/olive/New/2024_GROUP_17/src/optiondialog.cpp", "MU", null ],
+		[ "C:/Users/olive/New/2024_GROUP_17/src/vrrenderthread.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

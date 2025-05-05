@@ -9,13 +9,17 @@
 
 #include "ModelPart.h"
 #include <vtkProperty.h>
+#include <vtkShrinkPolyData.h>
+#include <vtkClipPolyData.h>
+#include <vtkPlane.h>
+#include <vtkActor.h>
 
 
 /* Commented out for now, will be uncommented later when you have
  * installed the VTK library
  */
-//#include <vtkSmartPointer.h>
-//#include <vtkDataSetMapper.h>
+#include <vtkSmartPointer.h>
+#include <vtkDataSetMapper.h>
 
 
 
@@ -98,10 +102,19 @@ int ModelPart::row() const {
 }
 
 void ModelPart::setColour(const unsigned char R, const unsigned char G, const unsigned char B) {
-    /* This is a placeholder function that you will need to modify if you want to use it */
-    
-    /* As the name suggests ... */
+    if (actor) {
+        actor->GetProperty()->SetColor(R / 255.0, G / 255.0, B / 255.0);
+    }
 }
+
+void ModelPart::propagateColour(unsigned char R, unsigned char G, unsigned char B) {
+    setColour(R, G, B);
+
+    for (ModelPart* child : m_childItems) {
+        child->propagateColour(R, G, B);
+    }
+}
+
 
 unsigned char ModelPart::getColourR() {
     /* This is a placeholder function that you will need to modify if you want to use it */
@@ -137,24 +150,47 @@ bool ModelPart::visible() {
 
     return isVisible;
 }
-
-void ModelPart::loadSTL( QString fileName ) {
+void ModelPart::loadSTL(QString fileName) {
+    // Load STL file
     file = vtkSmartPointer<vtkSTLReader>::New();
     file->SetFileName(fileName.toStdString().c_str());
     file->Update();
 
+    // === SHRINK FILTER ===
+    shrinkFilter = vtkSmartPointer<vtkShrinkPolyData>::New();
+    shrinkFilter->SetInputConnection(file->GetOutputPort());
+    shrinkFilter->SetShrinkFactor(1.0);  // Default: no shrink
+    shrinkFilter->Update();
 
+    // === CLIP FILTER ===
+    clipPlane = vtkSmartPointer<vtkPlane>::New();
+
+    // Center the clip plane in Z bounds
+    double bounds[6];
+    file->GetOutput()->GetBounds(bounds);
+    double zMid = (bounds[4] + bounds[5]) / 2.0;
+
+    clipPlane->SetOrigin(0.0, 0.0, zMid);      // Mid-height of model
+    clipPlane->SetNormal(0.0, 0.0, 1.0);       // Clipping from bottom
+
+    clipFilter = vtkSmartPointer<vtkClipPolyData>::New();
+    clipFilter->SetInputConnection(shrinkFilter->GetOutputPort());
+    clipFilter->SetClipFunction(clipPlane.Get());
+    clipFilter->SetInsideOut(true);           // Show front half
+    clipFilter->SetValue(0.0);
+    clipFilter->Update();
+
+    // === Mapper ===
     mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-    mapper->SetInputConnection(file->GetOutputPort());
+    mapper->SetInputConnection(clipFilter->GetOutputPort());  // ✅ USE FILTERS
 
+    // === Actor ===
     actor = vtkSmartPointer<vtkActor>::New();
     actor->SetMapper(mapper);
-
-    actor->GetProperty()->SetColor(1.0, 1.0, 0.0);  // Bright yellow
+    actor->GetProperty()->SetColor(1.0, 1.0, 0.0);
     actor->SetVisibility(true);
-    isVisible = true;  //
+    isVisible = true;
 }
-
 
 
 
@@ -166,6 +202,29 @@ bool ModelPart::setData(int column, const QVariant &value)
 
     m_itemData[column] = value;
     return true;
+}
+
+
+void ModelPart::propagateVisibility(bool visible) {
+    setVisible(visible);
+    set(1, visible ? "true" : "false");
+    for (ModelPart* child : m_childItems) {
+        child->propagateVisibility(visible);
+    }
+}
+
+void ModelPart::propagateClip(bool clip) {
+    set(3, clip ? "true" : "false");
+    for (ModelPart* child : m_childItems) {
+        child->propagateClip(clip);
+    }
+}
+
+void ModelPart::propagateShrink(bool shrink) {
+    set(2, shrink ? "true" : "false");
+    for (ModelPart* child : m_childItems) {
+        child->propagateShrink(shrink);
+    }
 }
 
 
@@ -201,3 +260,30 @@ vtkSmartPointer<vtkActor> ModelPart::getActor() {
     
 //}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void ModelPart::applyShrink(bool enable) {
+    if (!shrinkFilter) return;
+    shrinkFilter->SetShrinkFactor(enable ? 0.7 : 1.0);
+    shrinkFilter->Modified();
+    shrinkFilter->Update();
+}
+
+void ModelPart::applyClip(bool enable) {
+    if (!clipFilter) return;
+    clipFilter->SetInsideOut(false);
+    clipFilter->Modified();
+    clipFilter->Update();
+}

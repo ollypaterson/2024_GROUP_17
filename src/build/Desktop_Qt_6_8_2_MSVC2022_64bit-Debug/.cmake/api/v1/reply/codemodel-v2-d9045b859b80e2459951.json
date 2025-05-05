@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-a56a0b38b1899d6235a7.json",
+					"jsonFile" : "directory-.-Debug-c825dec2c6f5edaafe44.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -48,7 +48,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "FirstQt::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-FirstQt-Debug-fd5f75653963a33dc093.json",
+					"jsonFile" : "target-FirstQt-Debug-75183d5b0704485575c0.json",
 					"name" : "FirstQt",
 					"projectIndex" : 0
 				},
@@ -69,14 +69,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "FirstQt_qmlimportscan::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-FirstQt_qmlimportscan-Debug-5df6a3b351a708f6d716.json",
+					"jsonFile" : "target-FirstQt_qmlimportscan-Debug-65b462e69e222c3cf4f7.json",
 					"name" : "FirstQt_qmlimportscan",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "VRBindings::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-VRBindings-Debug-4e60531b6363aa78b115.json",
+					"jsonFile" : "target-VRBindings-Debug-babf612851276e89799d.json",
 					"name" : "VRBindings",
 					"projectIndex" : 0
 				}

@@ -22,6 +22,7 @@ C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCellLinks.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCellType.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCellTypes.h \
+  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkClipPolyData.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCommand.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCommonCoreModule.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkCommonDataModelModule.h \
@@ -42,6 +43,7 @@ C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkDeprecation.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkFeatures.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkFiltersCoreModule.h \
+  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkFiltersGeneralModule.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkGUISupportQtModule.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkGenericCell.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkGenericDataArray.h \
@@ -80,6 +82,7 @@ C:/Users/olive/New/2024_GROUP_17/src/build/Desktop_Qt_6_8_2_MSVC2022_64bit-Debug
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkRenderingCoreModule.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSTLReader.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSetGet.h \
+  C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkShrinkPolyData.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSmartPointer.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkSmartPointerBase.h \
   C:/Program\ Files\ (x86)/VTK/include/vtk-9.4/vtkStdString.h \

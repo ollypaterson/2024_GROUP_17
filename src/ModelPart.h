@@ -18,6 +18,8 @@
 #include <vtkPolyDataMapper.h>
 #include <vtkActor.h>
 #include <QVTKOpenGLNativeWidget.h>
+#include <vtkShrinkPolyData.h>
+#include <vtkClipPolyData.h>
 
 
 /* VTK headers - will be needed when VTK used in next worksheet,
@@ -134,6 +136,20 @@ public:
 
     bool setData(int column, const QVariant &value);
 
+    void propagateVisibility(bool visible);
+    void propagateClip(bool clip);
+    void propagateShrink(bool shrink);
+
+    void propagateColour(unsigned char R, unsigned char G, unsigned char B);
+
+    void applyShrink(bool enable);
+    void applyClip(bool enable);
+
+
+
+
+
+
 
 
 private:
@@ -152,6 +168,12 @@ private:
     vtkSmartPointer<vtkSTLReader>               file;               /**< Datafile from which part loaded */
     vtkSmartPointer<vtkMapper>                  mapper;             /**< Mapper for rendering */
     vtkSmartPointer<vtkActor>                   actor;              /**< Actor for rendering */
+
+    vtkSmartPointer<vtkShrinkPolyData>          shrinkFilter;
+    vtkSmartPointer<vtkClipPolyData>            clipFilter;
+    vtkSmartPointer<vtkPlane>                   clipPlane;
+
+
    // vtkColor3<unsigned char>                    colour;             /**< User defineable colour */
 };  
 

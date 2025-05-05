@@ -26,6 +26,8 @@ set(PROJECT_SOURCES
         optiondialog.ui
         optiondialog.h
         optiondialog.cpp
+        VRRenderThread.cpp
+        VRRenderThread.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -35,6 +37,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         icons.qrc
         optiondialog.h optiondialog.cpp optiondialog.ui
         colourdialog.h colourdialog.cpp colourdialog.ui
+        vrrenderthread.h vrrenderthread.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FirstQt APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -3,3 +3,4 @@
 #include "EWIEGA46WW/moc_colourdialog.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_optiondialog.cpp"
+#include "EWIEGA46WW/moc_vrrenderthread.cpp"

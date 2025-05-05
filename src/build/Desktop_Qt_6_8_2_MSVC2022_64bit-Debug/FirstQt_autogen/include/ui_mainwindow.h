@@ -38,6 +38,8 @@ public:
     QAction *actionSave_File;
     QAction *actionHelp;
     QAction *actionPrint;
+    QAction *startVRButton;
+    QAction *actionstopVR;
     QVTKOpenGLNativeWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -99,6 +101,16 @@ public:
         icon3.addFile(QString::fromUtf8(":/Icons/print.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         actionPrint->setIcon(icon3);
         actionPrint->setMenuRole(QAction::MenuRole::NoRole);
+        startVRButton = new QAction(MainWindow);
+        startVRButton->setObjectName("startVRButton");
+        QIcon icon4(QIcon::fromTheme(QIcon::ThemeIcon::MediaPlaybackStart));
+        startVRButton->setIcon(icon4);
+        startVRButton->setMenuRole(QAction::MenuRole::NoRole);
+        actionstopVR = new QAction(MainWindow);
+        actionstopVR->setObjectName("actionstopVR");
+        QIcon icon5(QIcon::fromTheme(QIcon::ThemeIcon::MediaPlaybackStop));
+        actionstopVR->setIcon(icon5);
+        actionstopVR->setMenuRole(QAction::MenuRole::NoRole);
         centralwidget = new QVTKOpenGLNativeWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
@@ -193,6 +205,8 @@ public:
         toolBar->addAction(actionSave_File);
         toolBar->addAction(actionHelp);
         toolBar->addAction(actionPrint);
+        toolBar->addAction(startVRButton);
+        toolBar->addAction(actionstopVR);
 
         retranslateUi(MainWindow);
 
@@ -208,6 +222,8 @@ public:
         actionSave_File->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         actionHelp->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         actionPrint->setText(QCoreApplication::translate("MainWindow", "Print", nullptr));
+        startVRButton->setText(QCoreApplication::translate("MainWindow", "Start VR", nullptr));
+        actionstopVR->setText(QCoreApplication::translate("MainWindow", "stopVR", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Reset Model View", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "Change Model Colour", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Light intensity: ", nullptr));

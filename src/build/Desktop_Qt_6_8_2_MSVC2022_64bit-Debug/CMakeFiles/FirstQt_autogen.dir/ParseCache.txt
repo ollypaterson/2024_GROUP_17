@@ -30,6 +30,7 @@ C:/Users/olive/New/2024_GROUP_17/src/ModelPartList.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCellLinks.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCellType.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCellTypes.h
+ mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkClipPolyData.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCommand.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCommonCoreModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCommonDataModelModule.h
@@ -50,6 +51,7 @@ C:/Users/olive/New/2024_GROUP_17/src/ModelPartList.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkDeprecation.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkFeatures.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkFiltersCoreModule.h
+ mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkFiltersGeneralModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGUISupportQtModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGenericCell.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGenericDataArray.h
@@ -88,6 +90,7 @@ C:/Users/olive/New/2024_GROUP_17/src/ModelPartList.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderingCoreModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSTLReader.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSetGet.h
+ mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkShrinkPolyData.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSmartPointer.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSmartPointerBase.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkStdString.h
@@ -459,7 +462,6 @@ C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkAbstractMapper3D.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkAbstractPolyDataReader.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkActor.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkActorCollection.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkAlgorithm.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkAssume.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkBoundingBox.h
@@ -470,13 +472,12 @@ C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCellLinks.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCellType.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCellTypes.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCollection.h
+ mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkClipPolyData.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCommand.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCommonCoreModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCommonDataModelModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCommonExecutionModelModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCompiler.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkCylinderSource.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkDataArray.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkDataArrayAccessor.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkDataArrayMeta.h
@@ -490,25 +491,21 @@ C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkDebugLeaksManager.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkDebugRangeIterators.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkDeprecation.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkEventData.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkFeatures.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkFiltersCoreModule.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkFiltersSourcesModule.h
+ mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkFiltersGeneralModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGUISupportQtModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGenericCell.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGenericDataArray.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGenericDataArray.txx
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGenericDataArrayLookupHelper.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkGenericOpenGLRenderWindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIOCoreModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIOGeometryModule.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIOImageModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIOStream.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIdList.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIdTypeArray.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIndent.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkIntArray.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkLight.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkMapper.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkMath.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkMathConfigure.h
@@ -521,7 +518,6 @@ C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkObject.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkObjectBase.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkObjectFactory.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkOpenGLRenderWindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkOptions.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkPlatform.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkPointSet.h
@@ -532,26 +528,17 @@ C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkPolyDataMapper.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkProp.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkProp3D.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkPropCollection.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkProperty.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRect.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderWindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderWindowInteractor.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderer.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderingCoreModule.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderingHyperTreeGridModule.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderingOpenGL2Module.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkRenderingUIModule.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSTLReader.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSelection.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSetGet.h
+ mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkShrinkPolyData.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSmartPointer.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSmartPointerBase.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkStdString.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkSystemIncludes.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkTDxConfigure.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkTimeStamp.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkTuple.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkType.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkTypeInt32Array.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkTypeInt64Array.h
@@ -564,15 +551,10 @@ C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkVariant.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkVariantCast.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkVariantInlineOperators.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkVector.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkVersionQuick.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkViewport.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkVolume.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkVolumeCollection.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkWeakPointer.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkWeakPointerBase.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkWin32Header.h
- mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkWindow.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtkWrappingHints.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtk_kwiml.h
  mdp:C:/Program Files (x86)/VTK/include/vtk-9.4/vtk_nlohmannjson.h
@@ -754,6 +736,7 @@ C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
  mdp:C:/Qt/6.8.2/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/Users/olive/New/2024_GROUP_17/src/ModelPart.h
  mdp:C:/Users/olive/New/2024_GROUP_17/src/ModelPartList.h
+ mdp:C:/Users/olive/New/2024_GROUP_17/src/vrrenderthread.h
  mdp:C:/Users/olive/New/2024_GROUP_17/src/mainwindow.h
 C:/Users/olive/New/2024_GROUP_17/src/ModelPartList.cpp
 C:/Users/olive/New/2024_GROUP_17/src/colourdialog.h
@@ -913,3 +896,7 @@ C:/Users/olive/New/2024_GROUP_17/src/colourdialog.h
  mdp:C:/Users/olive/New/2024_GROUP_17/src/colourdialog.h
 C:/Users/olive/New/2024_GROUP_17/src/colourdialog.cpp
  uic:ui_colourdialog.h
+C:/Users/olive/New/2024_GROUP_17/src/vrrenderthread.h
+ mmc:Q_OBJECT
+ mdp:C:/Users/olive/New/2024_GROUP_17/src/vrrenderthread.h
+C:/Users/olive/New/2024_GROUP_17/src/vrrenderthread.cpp
