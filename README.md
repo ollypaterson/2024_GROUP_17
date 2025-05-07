@@ -10,7 +10,7 @@ This project aims to extend the implementation of VTK to view STL and CAD files,
 
 ## 🛠️ Requirements 🛠️
 To successfully build and run this application, the following dependencies are necessary:
-- **CMake:** Version 3.20 or higher.
+- **CMake:** Version 3.16 or higher.
 - **Qt:** Version 6.4 or higher.
 - **VTK:** Version 9.2 or higher.
 - **OpenVR SDK:** Required for VR functionality.
