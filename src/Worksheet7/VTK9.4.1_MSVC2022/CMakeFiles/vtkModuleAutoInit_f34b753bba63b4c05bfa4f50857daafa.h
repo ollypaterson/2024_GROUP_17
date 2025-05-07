@@ -1,2 +1,0 @@
-#define vtkRenderingCore_AUTOINIT 3(vtkInteractionStyle,vtkRenderingOpenGL2,vtkRenderingVRModels)
-#define vtkRenderingVolume_AUTOINIT 1(vtkRenderingVolumeOpenGL2)
