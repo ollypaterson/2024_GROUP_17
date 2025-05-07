@@ -29,7 +29,7 @@ This is the easiest method and suitable for most users.
 Use this method if you want to modify or debug the application.
 
 ### Requirements:
-- **CMake** >= 3.20
+- **CMake** >= 3.16
 - **Qt** >= 6.4
 - **VTK** >= 9.2
 - **OpenVR SDK**
