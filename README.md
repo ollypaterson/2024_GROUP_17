@@ -19,5 +19,4 @@ To successfully build and run this application, the following dependencies are n
 ## 🔗 Quick Links 🔗
 For more detailed information, please refer to the following documents:
 - **Installation Guide:** [Installation](/docs/installation.md)
-- **Frequently Asked Questions:** [FAQs](/docs/faq.md)
 - **Code Architecture Overview:** [Code Architecture](/docs/arc.md)
